@@ -14,8 +14,10 @@ Then convert to [Comma-separated values](https://en.wikipedia.org/wiki/Comma-sep
 ### LibreOffice
 
 ```bash
-libreoffice --headless --convert-to csv FILE
+libreoffice --headless --convert-to csv --infilter=CSV:44,34,UTF8 FILE
 ```
+
+`--infilter=CSV:44,34,UTF8` is necessary because LibreOffice defaults to ISO-8859-1
 
 ### [unoconv](https://github.com/dagwieers/unoconv)
 

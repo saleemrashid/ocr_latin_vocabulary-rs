@@ -16,3 +16,4 @@ Convert OCR Latin GCSE Defined vocabulary lists to a simple format
 travis-ci = { repository = "saleemrashid/ocr_latin_vocabulary-rs" }
 
 [dependencies]
+csv = "0.15.0"
