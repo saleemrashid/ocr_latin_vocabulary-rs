@@ -28,7 +28,7 @@ unoconv -f csv FILE
 The simple format can be imported into some vocabulary testing software
 
 ```text
-[Latin word]
+[Latin descriptor]
 [English translation]/[English translation]/[English translation]
 ```
 
