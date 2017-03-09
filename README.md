@@ -5,7 +5,25 @@
 
 Convert OCR Latin GCSE Defined vocabulary lists to a simple format
 
-## Format
+## Input Format
+
+Download the OCR Latin GCSE Defined vocabulary lists in Excel format
+
+Then convert to [Comma-separated values](https://en.wikipedia.org/wiki/Comma-separated_values)
+
+### LibreOffice
+
+```bash
+libreoffice --headless --convert-to csv FILE
+```
+
+### [unoconv](https://github.com/dagwieers/unoconv)
+
+```bash
+unoconv -f csv FILE
+```
+
+## Output Format
 
 The simple format can be imported into some vocabulary testing software
 
