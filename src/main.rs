@@ -25,25 +25,33 @@ fn main() {
                 .collect::<Vec<_>>()
         });
 
-    let words = records.flat_map(|r| {
+    let words = records.map(|r| {
             let extra_information = &r[1];
 
-            r.first()
+            let words = r.first()
                 .unwrap()
                 .split(',')
                 .map(str::trim)
                 .map(|s| if extra_information.is_empty() || extra_information == "indeclinable" {
-                    s.to_owned()
-                } else if extra_information.starts_with('+') {
+                         s.to_owned()
+                     } else if extra_information.starts_with('+') {
                     format!("{} {}", s, extra_information)
                 } else {
                     format!("{}, {}", s, extra_information)
                 })
-                .collect::<Vec<_>>()
+                .collect::<Vec<_>>();
+
+            let translations = r[3]
+                .split(',')
+                .map(str::trim)
+                .map(str::to_owned)
+                .collect::<Vec<_>>();
+
+            (words, translations)
         })
         .collect::<Vec<_>>();
 
-    for word in words {
-        println!("{}", word);
+    for (words, translations) in words {
+        println!("{}\n{}", words.join("/"), translations.join("/"));
     }
 }
