@@ -17,3 +17,4 @@ travis-ci = { repository = "saleemrashid/ocr_latin_vocabulary-rs" }
 
 [dependencies]
 csv = "0.15.0"
+unicode-normalization = "0.1.4" 

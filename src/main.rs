@@ -1,7 +1,9 @@
 extern crate csv;
+extern crate unicode_normalization;
 
 use csv::Reader;
 use std::io;
+use unicode_normalization::UnicodeNormalization;
 
 const REQUIRED_COLUMN_COUNT: usize = 4;
 
@@ -19,7 +21,7 @@ fn main() {
         // Convert to UTF-8
         .map(|r| {
             r.into_iter()
-                .map(|s| String::from_utf8_lossy(&s).trim().to_owned())
+                .map(|s| String::from_utf8_lossy(&s).trim().nfkd().collect::<String>())
                 .collect::<Vec<_>>()
         });
 
